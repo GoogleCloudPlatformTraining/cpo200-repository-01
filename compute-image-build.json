@@ -1,0 +1,25 @@
+{
+  "builders" : [
+    {
+    "type": "googlecompute",
+    "project_id": "jenkins-cpo200-rsk",
+    "source_image": "debian-swarm-image-v20150807",
+    "zone": "us-central1-f",
+    "image_name" : "build-image-test",
+    "disk_size" : 10,
+    "machine_type" : "n1-standard-2",
+    "network" : "jenkins-net",
+    "tags" : ["ssh"]
+    }
+  ],
+  "provisioners" : [
+    {
+    "type": "shell",
+    "inline": [
+      "wget -q -O docker-script.sh https://get.docker.com/ ",
+      "chmod +x docker-script.sh",
+      "./docker-script.sh"
+      ]
+    }
+  ]
+}
