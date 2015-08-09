@@ -3,7 +3,7 @@
     {
     "type": "googlecompute",
     "project_id": "jenkins-cpo200-rsk",
-    "source_image": "debian-swarm-image-v20150807",
+    "source_image": "backports-debian-7-wheezy-v20150603",
     "zone": "us-central1-f",
     "image_name" : "build-image-test",
     "disk_size" : 10,
@@ -18,7 +18,9 @@
     "inline": [
       "wget -q -O docker-script.sh https://get.docker.com/ ",
       "chmod +x docker-script.sh",
-      "./docker-script.sh"
+      "./docker-script.sh",
+      "rm docker-script.sh",
+      "gcloud docker pull gcr.io/jenkins-cpo200-rsk/guestbook"
       ]
     }
   ]
