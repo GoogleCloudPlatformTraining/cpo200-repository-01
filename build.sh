@@ -6,7 +6,7 @@
 #          using the guestbook Docker container
 #
 
-gcloud compute images delete guestbook-image
+gcloud -q compute images delete guestbook-image
 
 # Issue meta requests to fill in missing information in the compute-image-build.json file
 
