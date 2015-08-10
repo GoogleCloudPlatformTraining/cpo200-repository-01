@@ -11,4 +11,4 @@ gcloud -q compute images delete guestbook-image
 # Issue meta requests to fill in missing information in the compute-image-build.json file
 
 # Run Packer to build the image
-/opt/packer/packer build -t guestbook-image .
+sudo /opt/packer/packer build compute-image-build.json
