@@ -5,9 +5,9 @@
     "project_id": "jenkins-cpo200-rsk",
     "source_image": "backports-debian-7-wheezy-v20150603",
     "zone": "us-central1-f",
-    "image_name" : "build-image-test",
+    "image_name" : "guestbook-image",
     "disk_size" : 10,
-    "machine_type" : "n1-standard-2",
+    "machine_type" : "g1-small",
     "network" : "jenkins-net",
     "tags" : ["ssh"]
     }
@@ -16,10 +16,12 @@
     {
     "type": "shell",
     "inline": [
+      "apt-get -y -qq update",
       "wget -q -O docker-script.sh https://get.docker.com/ ",
       "chmod +x docker-script.sh",
       "./docker-script.sh",
       "rm docker-script.sh",
+      "gcloud -q components update",
       "gcloud docker pull gcr.io/jenkins-cpo200-rsk/guestbook"
       ]
     }
