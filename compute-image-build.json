@@ -2,7 +2,7 @@
   "builders" : [
     {
     "type": "googlecompute",
-    "project_id": "jenkins-cpo200-rsk",
+    "project_id": "jenkins-cpo200",
     "source_image": "backports-debian-7-wheezy-v20150603",
     "zone": "us-central1-f",
     "image_name" : "guestbook-image",
@@ -22,7 +22,7 @@
       "./docker-script.sh",
       "rm docker-script.sh",
       "gcloud -q components update",
-      "gcloud docker pull gcr.io/jenkins-cpo200-rsk/guestbook"
+      "gcloud docker pull gcr.io/jenkins-cpo200/guestbook"
       ]
     }
   ]
