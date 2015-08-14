@@ -25,7 +25,7 @@
       "./docker-script.sh",
       "rm docker-script.sh",
       "gcloud -q components update",
-      "gcloud docker pull gcr.io/jenkins-cpo200/guestbook"
+      "gcloud docker pull gcr.io/{{user `project_id`}}/guestbook"
       ]
     }
   ]
