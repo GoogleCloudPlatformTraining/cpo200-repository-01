@@ -8,6 +8,8 @@
 
 PROJECT_ID=$(curl -s 'http://metadata/computeMetadata/v1/project/project-id' -H 'Metadata-Flavor: Google')
 
+echo '${PROJECT_ID}'
+
 gcloud compute images delete guestbook-image
 
 # Issue meta requests to fill in missing information in the compute-image-build.json file
