@@ -10,7 +10,7 @@
     "zone": "us-central1-f",
     "image_name" : "guestbook-image",
     "disk_size" : 10,
-    "machine_type" : "g1-small",
+    "machine_type" : "n1-standard-2",
     "network" : "jenkins-net",
     "tags" : ["ssh"]
     }
