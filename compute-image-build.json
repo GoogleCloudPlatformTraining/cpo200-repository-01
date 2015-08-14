@@ -1,11 +1,11 @@
 {
   "variables": {
     "project_id": "{{env `PROJECT_ID`}}"
-  }
+  },
   "builders" : [
     {
     "type": "googlecompute",
-    "project_id": "{{project_id}}",
+    "project_id": "{{user `project_id`}}",
     "source_image": "backports-debian-7-wheezy-v20150603",
     "zone": "us-central1-f",
     "image_name" : "guestbook-image",

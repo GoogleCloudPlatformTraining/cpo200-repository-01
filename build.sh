@@ -6,15 +6,10 @@
 #          using the guestbook Docker container
 #
 
-PROJECT_ID=$(curl -s 'http://metadata/computeMetadata/v1/project/project-id' -H 'Metadata-Flavor: Google')
+# Issue a request for the metadata service to get the current project identifier
+export PROJECT_ID=$(curl -s 'http://metadata/computeMetadata/v1/project/project-id' -H 'Metadata-Flavor: Google')
 
-echo '${PROJECT_ID}'
-
-gcloud compute images delete guestbook-image
-
-# Issue meta requests to fill in missing information in the compute-image-build.json file
+gcloud compute images delete guestbook-image --quiet --user-output-enabled false
 
 # Run Packer to build the image
-sudo /opt/packer/packer build \
-  -var 'project_id=${PROJECT_ID}'
-  compute-image-build.json
+/opt/packer/packer build  compute-image-build.json
