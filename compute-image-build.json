@@ -1,6 +1,7 @@
 {
   "variables": {
-    "project_id": "{{env `PROJECT_ID`}}"
+    "project_id": "{{env `PROJECT_ID`}}",
+    "gcr_prefix": "{{env `GCR_PREFIX`}}"
   },
   "builders" : [
     {
@@ -25,7 +26,7 @@
       "./docker-script.sh",
       "rm docker-script.sh",
       "gcloud -q components update",
-      "gcloud docker pull gcr.io/{{user `project_id`}}/guestbook"
+      "gcloud docker pull {{user `gcr_prefix`}}/{{user `project_id`}}/guestbook"
       ]
     }
   ]
